@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{61852E14-0D96-4727-9F89-1ADBDA184641}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NEW</RootNamespace>
+    <AssemblyName>NEW</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v14.1.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v14.1">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v14.1">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v14.1.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v14.1">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="classfity\classInputFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="classfity\classInputFile.Designer.cs">
+      <DependentUpon>classInputFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="classfity\Kmean.cs" />
+    <Compile Include="Convert\Write.cs" />
+    <Compile Include="fliter\choseFileForFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fliter\choseFileForFilter.Designer.cs">
+      <DependentUpon>choseFileForFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Convert\BsqToBil.cs" />
+    <Compile Include="Convert\BsqToBip.cs" />
+    <Compile Include="Convert\ChooseNewBsq.cs" />
+    <Compile Include="Convert\Combine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Convert\Combine.Designer.cs">
+      <DependentUpon>Combine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Convert\Convertion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Convert\Convertion.Designer.cs">
+      <DependentUpon>Convertion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Convert\ReadBsq.cs" />
+    <Compile Include="Convert\WriteHdr.cs" />
+    <Compile Include="fliter\Average_Median.cs" />
+    <Compile Include="fliter\ChooseMask.cs" />
+    <Compile Include="fliter\GassLowPass.cs" />
+    <Compile Include="fliter\GradientInverseWeight.cs" />
+    <Compile Include="fliter\Laplacian.cs" />
+    <Compile Include="fliter\Prewitt_Sobel.cs" />
+    <Compile Include="ImageChange\BandMath.cs" />
+    <Compile Include="ImageChange\BandMathinput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageChange\BandMathinput.designer.cs">
+      <DependentUpon>BandMathinput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageChange\BandQuery.cs" />
+    <Compile Include="ImageChange\HSI_RGBChoseData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageChange\HSI_RGBChoseData.Designer.cs">
+      <DependentUpon>HSI_RGBChoseData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageChange\RGB_HSIChoseData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageChange\RGB_HSIChoseData.designer.cs">
+      <DependentUpon>RGB_HSIChoseData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageChange\HSIToRGB.cs" />
+    <Compile Include="ImageChange\K-T Input File.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageChange\K-T Input File.designer.cs">
+      <DependentUpon>K-T Input File.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageChange\K-Tchange.cs" />
+    <Compile Include="ImageChange\RGBToHSI.cs" />
+    <Compile Include="ImageDivide\Corrode.cs" />
+    <Compile Include="ImageDivide\Expand.cs" />
+    <Compile Include="ImageDivide\Expand_Corode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageDivide\Expand_Corode.Designer.cs">
+      <DependentUpon>Expand_Corode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageDivide\ThresholdSplit.cs" />
+    <Compile Include="ImageStretch\ChooseRangeForStretch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageStretch\ChooseRangeForStretch.designer.cs">
+      <DependentUpon>ChooseRangeForStretch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageStretch\HistogramMatchView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageStretch\HistogramMatchView.designer.cs">
+      <DependentUpon>HistogramMatchView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageStretch\imagestretch.cs" />
+    <Compile Include="share\ImageView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="share\ImageView.Designer.cs">
+      <DependentUpon>ImageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="share\AvailableBandlist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="share\AvailableBandlist.Designer.cs">
+      <DependentUpon>AvailableBandlist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="share\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="share\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="share\BandpixelInitialize.cs" />
+    <Compile Include="share\GetBandByBandname.cs" />
+    <Compile Include="share\GetDataByFilename.cs" />
+    <Compile Include="share\GetWinByName.cs" />
+    <Compile Include="share\ImageShow.cs" />
+    <Compile Include="share\ShowbandHistogram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="share\ShowbandHistogram.Designer.cs">
+      <DependentUpon>ShowbandHistogram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="share\read.cs" />
+    <Compile Include="share\SaveFile.cs" />
+    <Compile Include="share\showHdr.cs" />
+    <Compile Include="share\showpixel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="share\showpixel.Designer.cs">
+      <DependentUpon>showpixel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="statistics\chooseData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="statistics\chooseData.designer.cs">
+      <DependentUpon>chooseData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="statistics\Comparetwobands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="statistics\Comparetwobands.designer.cs">
+      <DependentUpon>Comparetwobands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="statistics\doublematrix.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="statistics\doublematrix.designer.cs">
+      <DependentUpon>doublematrix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="statistics\histogram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="statistics\histogram.designer.cs">
+      <DependentUpon>histogram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="statistics\image statistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="statistics\image statistics.designer.cs">
+      <DependentUpon>image statistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="statistics\perHistogram.cs" />
+    <Compile Include="statistics\RangeTexture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="statistics\RangeTexture.designer.cs">
+      <DependentUpon>RangeTexture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="statistics\singleband.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="statistics\singleband.designer.cs">
+      <DependentUpon>singleband.cs</DependentUpon>
+    </Compile>
+    <Compile Include="statistics\statistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="statistics\statistics.designer.cs">
+      <DependentUpon>statistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="statistics\unionhistogram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="statistics\unionhistogram.designer.cs">
+      <DependentUpon>unionhistogram.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="classfity\classInputFile.resx">
+      <DependentUpon>classInputFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fliter\choseFileForFilter.resx">
+      <DependentUpon>choseFileForFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Convert\Combine.resx">
+      <DependentUpon>Combine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Convert\Convertion.resx">
+      <DependentUpon>Convertion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageChange\BandMathinput.resx">
+      <DependentUpon>BandMathinput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageChange\HSI_RGBChoseData.resx">
+      <DependentUpon>HSI_RGBChoseData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageChange\RGB_HSIChoseData.resx">
+      <DependentUpon>RGB_HSIChoseData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageChange\K-T Input File.resx">
+      <DependentUpon>K-T Input File.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageDivide\Expand_Corode.resx">
+      <DependentUpon>Expand_Corode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageStretch\ChooseRangeForStretch.resx">
+      <DependentUpon>ChooseRangeForStretch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageStretch\HistogramMatchView.resx">
+      <DependentUpon>HistogramMatchView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="share\ImageView.resx">
+      <DependentUpon>ImageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="share\AvailableBandlist.resx">
+      <DependentUpon>AvailableBandlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="share\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="share\ShowbandHistogram.resx">
+      <DependentUpon>ShowbandHistogram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="share\showpixel.resx">
+      <DependentUpon>showpixel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statistics\chooseData.resx">
+      <DependentUpon>chooseData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statistics\Comparetwobands.resx">
+      <DependentUpon>Comparetwobands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statistics\doublematrix.resx">
+      <DependentUpon>doublematrix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statistics\histogram.resx">
+      <DependentUpon>histogram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statistics\image statistics.resx">
+      <DependentUpon>image statistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statistics\RangeTexture.resx">
+      <DependentUpon>RangeTexture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statistics\singleband.resx">
+      <DependentUpon>singleband.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statistics\statistics.resx">
+      <DependentUpon>statistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statistics\unionhistogram.resx">
+      <DependentUpon>unionhistogram.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
