@@ -93,8 +93,12 @@ namespace RemoteSystem
             Bandsname = new string[bands];
             stretchtype = "";
             for (int i = 0; i < bands; i++)
+            {
                 for (int j = 0; j < ColumnCounts * LineCounts; j++)
+                {
                     StretchTemp[i, j] = BandsDataD[i, j];
+                }
+            }
         }
         /// <summary>
         /// 存储窗口数据
@@ -108,11 +112,20 @@ namespace RemoteSystem
             if (!isValue)
             {
                 if (stretchtype == "")
+                {
                     for (int i = 0; i < bands; i++)
+                    {
                         Bandsname[i] = "band" + (i + 1);
+                    }
+                }
                 else
+                {
                     for (int i = 0; i < bands; i++)
+                    {
                         Bandsname[i] = stretchtype + ":" + "band" + (i + 1);
+                    }
+                }
+
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = null;
 
@@ -132,8 +145,12 @@ namespace RemoteSystem
                     rd.BandsDataD = StretchTemp;
                     rd.BandsData = new int[bands, ColumnCounts * LineCounts];
                     for (int i = 0; i < bands; i++)
+                    {
                         for (int j = 0; j < ColumnCounts * LineCounts; j++)
+                        {
                             rd.BandsData[i, j] = (int)rd.BandsDataD[i, j];
+                        }
+                    }
 
                     Form1.boduan.Add(rd);
                     Form1.abl.readmore.Add(rd);
@@ -147,10 +164,18 @@ namespace RemoteSystem
             else if (isValue)
             {
                 for (int i = 0; i < bands; i++)
+                {
                     for (int j = 0; j < ColumnCounts * LineCounts; j++)
+                    {
                         StretchTemp[i, j] = (double)bandstemp[i, j]/255;
+                    }
+                }
+
                 for (int i = 0; i < bands; i++)
+                {
                     Bandsname[i] = "Binary" + ":" + "band" + (i + 1);
+                }
+
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = null;
 
@@ -169,8 +194,13 @@ namespace RemoteSystem
                     rd.BandsDataD = StretchTemp;
                     rd.BandsData = new int[bands, ColumnCounts * LineCounts];
                     for (int i = 0; i < bands; i++)
+                    {
                         for (int j = 0; j < ColumnCounts * LineCounts; j++)
+                        {
                             rd.BandsData[i, j] = (int)rd.BandsDataD[i, j];
+                        }
+                    }
+
                     Form1.boduan.Add(rd);
                     Form1.abl.readmore.Add(rd);
                     Form1.abl.PATH = rd.FileName;
@@ -227,14 +257,19 @@ namespace RemoteSystem
         private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (Form1.abl.Wins.Count == 1)
+            {
                 MessageBox.Show("窗口不足，不能实现直方图匹配！");
+            }
             else
             {
                 int WinN1, WinN2;
                 HistogramMatch hm = new HistogramMatch();
                 WinN1 = Convert.ToInt32(this.windowname.Substring(windowname.Length - 1));
                 for (int i = 0; i < Form1.abl.Wins.Count; i++)
+                {
                     hm.listBox1.Items.Add(Form1.abl.Wins[i].windowname);
+                }
+
                 hm.listBox1.Items.Remove(this.windowname);
                 hm.ShowDialog();
 
@@ -358,7 +393,9 @@ namespace RemoteSystem
                 //int R = map.GetPixel(0, 0).R;
             }
             else
+            {
                 MessageBox.Show("请选择单波段图像窗口!");
+            }
         }
         /// <summary>
         /// 腐蚀&膨胀
@@ -378,7 +415,10 @@ namespace RemoteSystem
                 else
                 {
                     for (int i = 0; i < ColumnCounts * LineCounts; i++)
+                    {
                         bandstemp[0, i] /= 255;
+                    }
+
                     if (ec.handelState == 1)
                     {
                         Expand ep = new Expand(kernel);
@@ -390,7 +430,10 @@ namespace RemoteSystem
                         bandstemp = cr.corrode(bandstemp, 1, ColumnCounts, LineCounts);
                     }
                     for (int i = 0; i < ColumnCounts * LineCounts; i++)
+                    {
                         bandstemp[0, i] *= 255;
+                    }
+
                     pictureBox1.Refresh();
                     map = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     ImageShow ims = new ImageShow();
@@ -401,7 +444,9 @@ namespace RemoteSystem
 
             }
             else
+            {
                 MessageBox.Show("只能对二值化图像进行操作！");
+            }
         }
         /// <summary>
         /// OnClosing 事件重写
@@ -414,10 +459,15 @@ namespace RemoteSystem
             //Form1.abl.windowsnum--;
             Form1.abl.comboBox1.Items.Remove(this.windowname);
             if (Form1.abl.comboBox1.Items.Count == 1)
+            {
                 //Form1.abl.comboBox1.Items.Add("No Display");
                 Form1.abl.comboBox1.SelectedText = "No Display";
+            }
             else
+            {
                 Form1.abl.comboBox1.SelectedItem = Form1.abl.Wins[0].windowname;
+            }
+
             Form1.abl.TopMost = true;
             base.OnClosing(e);
         }
@@ -443,7 +493,9 @@ namespace RemoteSystem
                 isValue = true;
             }
             else
+            {
                 MessageBox.Show("请选择单波段图像窗口！");
+            }
         }
 
         private void pixelToolStripMenuItem_Click(object sender, EventArgs e)
@@ -482,9 +534,14 @@ namespace RemoteSystem
                 {
                     int k = 0;
                     if (bands == 1)
+                    {
                         k = 0;
+                    }
                     else
+                    {
                         k = i;
+                    }
+
                     sp.orginData[i] = this.BandsDataD[k, pt1.X + pt1.Y * ColumnCounts].ToString();
 
                 }

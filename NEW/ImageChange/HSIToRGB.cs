@@ -17,20 +17,39 @@ namespace RemoteSystem
             for (int i = 0; i < rd.ColumnCounts * rd.LineCounts; i++)
             {
                 if (Hmin > rd.BandsDataD[0, i])
+                {
                     Hmin = rd.BandsDataD[0, i];
+                }
+
                 if (Hmax < rd.BandsDataD[0, i])
+                {
                     Hmax = rd.BandsDataD[0, i];
+                }
+
                 if (Smin > rd.BandsDataD[1, i])
+                {
                     Smin = rd.BandsDataD[1, i];
+                }
+
                 if (Smax < rd.BandsDataD[1, i])
+                {
                     Smax = rd.BandsDataD[1, i];
+                }
+
                 if (Imin > rd.BandsDataD[2, i])
+                {
                     Imin = rd.BandsDataD[2, i];
+                }
+
                 if (Hmax < rd.BandsDataD[2, i])
+                {
                     Hmax = rd.BandsDataD[2, i];
+                }
             }
             if (Hmax > 360 || Hmin < 0 || Smax > 1 || Smin < 0 || Imax > 1 || Imin < 0)
+            {
                 isHSI = false;
+            }
             else
             {
                 HSI = rd.BandsDataD;
@@ -83,8 +102,13 @@ namespace RemoteSystem
             rd1.Bandsname = new string[rd.bands];
             rd1.BandsData = new int[rd.bands, ColumnCounts * LineCounts];
             for (int i = 0; i < rd1.bands; i++)
+            {
                 for (int j = 0; j < ColumnCounts * LineCounts; j++)
+                {
                     rd1.BandsData[i, j] = (int)rd1.BandsDataD[i, j];
+                }
+            }
+
             rd1.DataType = 4;
             return rd1;
         

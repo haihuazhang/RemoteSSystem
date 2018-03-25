@@ -67,9 +67,14 @@ namespace RemoteSystem
                             if ((j + p) >= 0 && (j + p) < LineCounts && (k + q) >= 0 && (k + q) < ColumnCounts)
                             {
                                 if (orglpixel[j + p, k + q] > max)
+                                {
                                     max = orglpixel[j + p, k + q];
+                                }
+
                                 if (orglpixel[j + p, k + q] < min)
+                                {
                                     min = orglpixel[j + p, k + q];
+                                }
                             }
                         }
                     }

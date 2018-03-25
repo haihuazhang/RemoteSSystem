@@ -93,16 +93,27 @@ namespace RemoteSystem
             g1.TranslateTransform(30, pictureBox1.Height * 14 / 15);
             int numMax = 0;
             for (int j = 0; j < 256; j++)
+            {
                 if (pixel[key][j] > numMax)
+                {
                     numMax = pixel[key][j];
+                }
+            }
+
             Multiple[key] = (int)(numMax / this.pictureBox1.Height * 1.2);
             Pen pen = new Pen(Color.Black, 0);
             if (key == 0)
+            {
                 pen = new Pen(Color.Red, 0);
+            }
             else if (key == 1)
+            {
                 pen = new Pen(Color.Green, 0);
+            }
             else if (key == 2)
+            {
                 pen = new Pen(Color.Blue, 0);
+            }
 
             for (int j = 0; j < 255; j++)
             {
@@ -112,11 +123,13 @@ namespace RemoteSystem
                 {
                     //int q = 0;
                     for (int p = 1; p <= 255 - j; p++)
+                    {
                         if (pixel[key][j + p] != 0)
                         {
                             g1.DrawLine(pen, j, -1 * pixel[key][j] / Multiple[key], j + p, -1 * pixel[key][j + p] / Multiple[key]);
                             break;
                         }
+                    }
                 }
             }
 

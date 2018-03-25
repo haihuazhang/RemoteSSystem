@@ -42,7 +42,9 @@ namespace RemoteSystem
                 this.Close();
             }
             else
+            {
                 MessageBox.Show("请选择目标窗口！");
+            }
         }
         /// <summary>
         /// 关闭该窗口

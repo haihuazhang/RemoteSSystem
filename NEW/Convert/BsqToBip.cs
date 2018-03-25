@@ -27,7 +27,9 @@ namespace RemoteSystem
                     for (int k = 0; k < bands; k++)
                     {
                         for (int j = 0; j < DataType; j++)
+                        {
                             fs.WriteByte(bits[j + k * LineCounts * ColumnCounts * DataType + i * DataType]);
+                        }
                     }
 
                 }

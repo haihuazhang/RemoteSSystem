@@ -26,10 +26,14 @@ namespace RemoteSystem
             for (int j = 0; j < bandtotalnum; j++)
             {
                 if (max < BandsData[i, j])
+                {
                     max = BandsData[i, j];
+                }
             }
             if ((int)max <= 255)
+            {
                 max = 255;
+            }
 
             pixel = new int[(int)max+1];
             int p = 0;
@@ -44,12 +48,18 @@ namespace RemoteSystem
             for (int j = 0; j <= (int)max; j++)
             {
                 if (pixel[j] == 0)
+                {
                     p++;
+                }
             }
             if (p == (int)max)
+            {
                 return false;
+            }
             else
+            {
                 return true;
+            }
         }
         /// <summary>
         /// 1.0版本累计直方图（已弃用）
@@ -91,13 +101,20 @@ namespace RemoteSystem
             for (int j = 0; j < bandtotalnum; j++)
             {
                 if (max < BandsDataD[i, j])
+                {
                     max = BandsDataD[i, j];
+                }
                 else if (min > BandsDataD[i, j])
+                {
                     min = BandsDataD[i, j];
+                }
             }
             stretch = max - min;
             if (stretch == 0)
+            {
                 stretch = 1;
+            }
+
             pixel = new int[256];
             //将数据进行分块，max-min分成255块，并将原数据合并，形成灰度直方图
 

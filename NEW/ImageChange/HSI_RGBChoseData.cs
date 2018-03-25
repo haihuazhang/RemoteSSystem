@@ -75,9 +75,14 @@ namespace RemoteSystem
                 }
                 rd = HtR.Getresult();
                 if (textEdit1.Text == "")
+                {
                     rd.FileName = "RGB";
+                }
                 else
+                {
                     rd.FileName = textEdit1.Text;
+                }
+
                 rd.Bandsname[0] = "Rband";
                 rd.Bandsname[1] = "Gband";
                 rd.Bandsname[2] = "Bband";
@@ -94,7 +99,9 @@ namespace RemoteSystem
                 this.Close();
             }
             else
+            {
                 MessageBox.Show("请选择数据！");
+            }
         }
         /// <summary>
         /// 加载数据项
@@ -104,7 +111,9 @@ namespace RemoteSystem
         private void HSIToRGBView_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < Form1.boduan.Count; i++)
+            {
                 listBoxControl1.Items.Add(Form1.boduan[i].FileName);
+            }
         }
     }
 }

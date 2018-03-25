@@ -61,7 +61,9 @@ namespace RemoteSystem
                         /// 考虑边缘情况
                         /// <summary> 
                         if (j == 0 || j == LineCounts - 1 || k == 0 || k == ColumnCounts - 1)
+                        {
                             Result[i, j * ColumnCounts + k] = BandsDataD[i, j * ColumnCounts + k];
+                        }
                         else
                         {
 
@@ -103,17 +105,22 @@ namespace RemoteSystem
             /// 波段
             /// <summary>
             for (int i = 0; i < bands; i++)
+            {
                 /// <summary>
                 /// 图像行列
                 /// <summary>
                 for (int j = 0; j < ColumnCounts; j++)
+                {
                     for (int k = 0; k < LineCounts; k++)
                     {
                         /// <summary>
                         /// 考虑边界问题
                         /// <summary>
                         if (j == 0 || j == LineCounts - 1 || k == 0 || k == ColumnCounts - 1)
+                        {
                             Result[i, j * ColumnCounts + k] = BandsDataD[i, j * ColumnCounts + k];
+                        }
+
                         /// <summary>
                         /// 利用List自带快速排序对卷积核内数据进行排序，得到中值
                         /// <summary>
@@ -124,8 +131,13 @@ namespace RemoteSystem
                             /// 压栈
                             /// <summary>
                             for (int p = -1; p < 2; p++)
+                            {
                                 for (int q = -1; q < 2; q++)
+                                {
                                     getMedian.Add(BandsDataD[i, (j + p) * ColumnCounts + k + q]);
+                                }
+                            }
+
                             /// <summary>
                             /// 快速排序
                             /// <summary>
@@ -136,6 +148,9 @@ namespace RemoteSystem
                             Result[i, j * ColumnCounts + k] = getMedian[4];
                         }
                     }
+                }
+            }
+
             return Result;
         }
         /// <summary>
@@ -151,8 +166,13 @@ namespace RemoteSystem
             rd.Bandsname = new string[bands];
             rd.BandsData = new int[bands, ColumnCounts * LineCounts];
             for (int i = 0; i < bands; i++)
+            {
                 for (int j = 0; j < ColumnCounts * LineCounts; j++)
+                {
                     rd.BandsData[i, j] = (int)rd.BandsDataD[i, j];
+                }
+            }
+
             rd.DataType = 4;
             return rd;
         }   

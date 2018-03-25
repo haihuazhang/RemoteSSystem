@@ -16,8 +16,8 @@ namespace RemoteSystem
             InitializeComponent();
         }
         public string FileName;
-        string hdrPath = "";
-        string dataPath = "";
+        //string hdrPath = "";
+        //string dataPath = "";
         public int[,] BandsData ;
         public double[,] BandsDataD;
         public int[,] showdata;

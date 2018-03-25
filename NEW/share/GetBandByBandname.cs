@@ -21,11 +21,14 @@ namespace RemoteSystem
         {
             int n=Int16.MinValue;
             for(int i=0;i<bands;i++)
-                if(Bandsname[i]==name)
+            {
+                if (Bandsname[i]==name)
                 {
                     n=i;
                     break;
                 }
+            }
+
             return  n;
         }
     }

@@ -28,7 +28,10 @@ namespace RemoteSystem
         private void choseFileForFilter_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < Form1.boduan.Count; i++)
+            {
                 listBoxControl1.Items.Add(Form1.boduan[i].FileName);
+            }
+
             comboBox1.Items.Add("Smoothing");
             comboBox1.Items.Add("Sharpen");
             comboBox1.SelectedItem = "Smoothing";
@@ -98,11 +101,18 @@ namespace RemoteSystem
                         giw.Gradient(Form1.boduan[N].BandsDataD);
                         rd = giw.GetResult();
                         if (textEdit1.Text == "")
+                        {
                             rd.FileName = "GradientInverseWeight";
+                        }
                         else
+                        {
                             rd.FileName = textEdit1.Text;
+                        }
+
                         for (int i = 0; i < rd.bands; i++)
+                        {
                             rd.Bandsname[i] = "GIW: " + "(" + Form1.boduan[N].Bandsname[i] + ")";
+                        }
                     }
                     /// <summary>
                     /// 选择式掩模平滑
@@ -113,12 +123,18 @@ namespace RemoteSystem
                         cm.ChoseMaskPerf(Form1.boduan[N].BandsDataD);
                         rd = cm.GetResult();
                         if (textEdit1.Text == "")
+                        {
                             rd.FileName = "ChooseMask";
+                        }
                         else
+                        {
                             rd.FileName = textEdit1.Text;
+                        }
 
                         for (int i = 0; i < rd.bands; i++)
+                        {
                             rd.Bandsname[i] = "CM: " + "(" + Form1.boduan[N].Bandsname[i] + ")";
+                        }
                     }
                     /// <summary>
                     /// 均值滤波
@@ -129,13 +145,18 @@ namespace RemoteSystem
                         am.AverSmoothing(Form1.boduan[N].BandsDataD);
                         rd = am.GetResult();
                         if (textEdit1.Text == "")
+                        {
                             rd.FileName = "AverageSmooth";
+                        }
                         else
+                        {
                             rd.FileName = textEdit1.Text;
+                        }
+
                         for (int i = 0; i < rd.bands; i++)
+                        {
                             rd.Bandsname[i] = "Aver: " + "(" + Form1.boduan[N].Bandsname[i] + ")";
-
-
+                        }
                     }
                     /// <summary>
                     /// 中值滤波
@@ -146,11 +167,18 @@ namespace RemoteSystem
                         am.MedianSmoothing(Form1.boduan[N].BandsDataD);
                         rd = am.GetResult();
                         if (textEdit1.Text == "")
+                        {
                             rd.FileName = "MedianSmooth";
+                        }
                         else
+                        {
                             rd.FileName = textEdit1.Text;
+                        }
+
                         for (int i = 0; i < rd.bands; i++)
+                        {
                             rd.Bandsname[i] = "Median: " + "(" + Form1.boduan[N].Bandsname[i] + ")";
+                        }
                     }
                     else if (listBoxControl2.Text == "Gass Low Pass")
                     {
@@ -159,11 +187,18 @@ namespace RemoteSystem
                         glp.GetGassValue(Form1.boduan[N].BandsDataD, 5, 1);
                         rd = glp.GetResult();
                         if (textEdit1.Text == "")
+                        {
                             rd.FileName = "Gass Low Pass";
+                        }
                         else
+                        {
                             rd.FileName = textEdit1.Text;
+                        }
+
                         for (int i = 0; i < rd.bands; i++)
+                        {
                             rd.Bandsname[i] = "GLP: " + "(" + Form1.boduan[N].Bandsname[i] + ")";
+                        }
                     }
                 }
                 else if (comboBox1.Text == "Sharpen")

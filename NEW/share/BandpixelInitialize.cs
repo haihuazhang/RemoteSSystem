@@ -22,8 +22,12 @@ namespace RemoteSystem
         {
             bandstemp = new int[bands, ColumnCounts * LineCounts];
             for (int i = 0; i < bands; i++)
+            {
                 for (int j = 0; j < ColumnCounts * LineCounts; j++)
+                {
                     bandstemp[i, j] = bandints[i, j];
+                }
+            }
         }
     }
 }

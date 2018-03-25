@@ -73,14 +73,21 @@ namespace RemoteSystem
                         Content = sr.ReadLine();
                         Content = Content.Substring(1, Content.IndexOf("}") - 1);
                         for (int i = 0; i < bands; i++)
+                        {
                             Bandsname[i] = Content.Split(',')[i].Trim();
+                        }
+
                         bandnames = true;
                     }
                     else
                     {
                         if (!bandnames)
+                        {
                             for (int i = 0; i < bands; i++)
+                            {
                                 Bandsname[i] = "band" + (i + 1);
+                            }
+                        }
                     }
                 }
             }
@@ -118,9 +125,12 @@ namespace RemoteSystem
             if (BandHandle())
             {
                 for (int i = 0; i < bands; i++)
+                {
                     for (int j = 0; j < ColumnCounts * LineCounts; j++)
+                    {
                         BandsData[i, j] = Convert.ToInt32(BandsDataD[i, j]);
-
+                    }
+                }
             }
             if (n != totalnum - 1)
             {
@@ -198,7 +208,10 @@ namespace RemoteSystem
                 }
             }
             else
+            {
                 return false;
+            }
+
             return true;
         }
         public void SaveData(int ColumnCounts, int LineCounts, int bands, double[,] BandsDataD,string[] Bandsname)

@@ -34,7 +34,7 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Save = new System.Windows.Forms.ToolStripMenuItem();
-            this.Close = new System.Windows.Forms.ToolStripMenuItem();
+            this.Close1 = new System.Windows.Forms.ToolStripMenuItem();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -56,6 +56,9 @@
             // 
             // ribbon
             // 
+            // 
+            // 
+            // 
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem});
@@ -67,7 +70,7 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 447);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 515);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(261, 31);
@@ -75,40 +78,41 @@
             // treeView1
             // 
             this.treeView1.ContextMenuStrip = this.contextMenuStrip1;
-            this.treeView1.Location = new System.Drawing.Point(8, 43);
+            this.treeView1.Location = new System.Drawing.Point(8, 49);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(241, 204);
+            this.treeView1.Size = new System.Drawing.Size(241, 233);
             this.treeView1.TabIndex = 5;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Save,
-            this.Close});
+            this.Close1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(216, 80);
             // 
             // Save
             // 
             this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(184, 22);
+            this.Save.Size = new System.Drawing.Size(215, 24);
             this.Save.Text = "Save Select File";
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
-            // Close
+            // Close1
             // 
-            this.Close.Name = "Close";
-            this.Close.Size = new System.Drawing.Size(184, 22);
-            this.Close.Text = "Close Selected File";
-            this.Close.Click += new System.EventHandler(this.Close_Click);
+            this.Close1.Name = "Close1";
+            this.Close1.Size = new System.Drawing.Size(215, 24);
+            this.Close1.Text = "Close Selected File";
+            this.Close1.Click += new System.EventHandler(this.Close_Click);
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(28, 263);
+            this.radioButton1.Location = new System.Drawing.Point(28, 301);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(61, 18);
+            this.radioButton1.Size = new System.Drawing.Size(71, 21);
             this.radioButton1.TabIndex = 6;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "单波段";
@@ -118,9 +122,9 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(130, 263);
+            this.radioButton2.Location = new System.Drawing.Point(130, 301);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(47, 18);
+            this.radioButton2.Size = new System.Drawing.Size(55, 21);
             this.radioButton2.TabIndex = 7;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "RGB";
@@ -130,16 +134,16 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(28, 287);
+            this.panel1.Location = new System.Drawing.Point(28, 328);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(193, 31);
+            this.panel1.Size = new System.Drawing.Size(193, 35);
             this.panel1.TabIndex = 8;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(3, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 22);
+            this.textBox1.Size = new System.Drawing.Size(181, 23);
             this.textBox1.TabIndex = 0;
             // 
             // panel2
@@ -150,38 +154,38 @@
             this.panel2.Controls.Add(this.radioButton5);
             this.panel2.Controls.Add(this.radioButton4);
             this.panel2.Controls.Add(this.radioButton3);
-            this.panel2.Location = new System.Drawing.Point(28, 324);
+            this.panel2.Location = new System.Drawing.Point(28, 370);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(193, 100);
+            this.panel2.Size = new System.Drawing.Size(193, 114);
             this.panel2.TabIndex = 9;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(49, 66);
+            this.textBox4.Location = new System.Drawing.Point(49, 75);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(135, 22);
+            this.textBox4.Size = new System.Drawing.Size(135, 23);
             this.textBox4.TabIndex = 5;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(49, 37);
+            this.textBox3.Location = new System.Drawing.Point(49, 42);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(135, 22);
+            this.textBox3.Size = new System.Drawing.Size(135, 23);
             this.textBox3.TabIndex = 4;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(49, 4);
+            this.textBox2.Location = new System.Drawing.Point(49, 5);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(135, 22);
+            this.textBox2.Size = new System.Drawing.Size(135, 23);
             this.textBox2.TabIndex = 3;
             // 
             // radioButton5
             // 
             this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(4, 70);
+            this.radioButton5.Location = new System.Drawing.Point(4, 80);
             this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(32, 18);
+            this.radioButton5.Size = new System.Drawing.Size(37, 21);
             this.radioButton5.TabIndex = 2;
             this.radioButton5.TabStop = true;
             this.radioButton5.Text = "B";
@@ -190,9 +194,9 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(4, 37);
+            this.radioButton4.Location = new System.Drawing.Point(4, 42);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(33, 18);
+            this.radioButton4.Size = new System.Drawing.Size(38, 21);
             this.radioButton4.TabIndex = 1;
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "G";
@@ -201,9 +205,9 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(4, 4);
+            this.radioButton3.Location = new System.Drawing.Point(4, 5);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(32, 18);
+            this.radioButton3.Size = new System.Drawing.Size(38, 21);
             this.radioButton3.TabIndex = 0;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "R";
@@ -211,9 +215,9 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(161, 430);
+            this.simpleButton1.Location = new System.Drawing.Point(161, 491);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton1.Size = new System.Drawing.Size(75, 26);
             this.simpleButton1.TabIndex = 11;
             this.simpleButton1.Text = "载入";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
@@ -223,18 +227,18 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "New Display"});
-            this.comboBox1.Location = new System.Drawing.Point(28, 430);
+            this.comboBox1.Location = new System.Drawing.Point(28, 491);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 22);
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 15;
             this.comboBox1.Text = "No Display";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // AvailableBandsList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(261, 478);
+            this.ClientSize = new System.Drawing.Size(261, 546);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.panel2);
@@ -279,7 +283,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Save;
-        private System.Windows.Forms.ToolStripMenuItem Close;
+        private System.Windows.Forms.ToolStripMenuItem Close1;
         public System.Windows.Forms.ComboBox comboBox1;
     }
 }

@@ -36,32 +36,44 @@ namespace RemoteSystem
                 if (rd.DataType == 1)
                 {
                     for(int i=0;i<rd.LineCounts;i++)
-                        for(int j=0;j<rd.bands;j++)
+                    {
+                        for (int j=0;j<rd.bands;j++)
+                        {
                             for (int k = 0; k < rd.ColumnCounts; k++)
                             {
                                 int temp = (int)rd.BandsDataD[j, k + i * rd.ColumnCounts];
                                 fs.WriteByte((byte)temp);
                             }
+                        }
+                    }
                 }
                 else if (rd.DataType == 2)
                 {
                     for (int i = 0; i < rd.LineCounts; i++)
+                    {
                         for (int j = 0; j < rd.bands; j++)
+                        {
                             for (int k = 0; k < rd.ColumnCounts; k++)
                             {
 
                                 fs.Write(BitConverter.GetBytes(Convert.ToInt16(rd.BandsDataD[j, k + i * rd.ColumnCounts])), 0, 2);
                             }
+                        }
+                    }
                 }
                 else if (rd.DataType == 4)
                 {
                     for (int i = 0; i < rd.LineCounts; i++)
+                    {
                         for (int j = 0; j < rd.bands; j++)
+                        {
                             for (int k = 0; k < rd.ColumnCounts; k++)
                             {
 
                                 fs.Write(BitConverter.GetBytes(Convert.ToSingle(rd.BandsDataD[j, k +i * rd.ColumnCounts])), 0, 4);
                             }
+                        }
+                    }
                 }
 
             }
@@ -70,32 +82,33 @@ namespace RemoteSystem
                 if (rd.DataType == 1)
                 {
                     for (int i = 0; i < rd.ColumnCounts * rd.LineCounts;i++ )
-                    
+                    {
                         for (int j = 0; j < rd.bands; j++)
                         {
                             int temp = (int)rd.BandsDataD[j, i];
                             fs.WriteByte((byte)temp);
                         }
-                    
+                    }
                 }
                 else if(rd.DataType==2)
                 {
                     for (int i = 0; i < rd.ColumnCounts * rd.LineCounts; i++)
-
+                    {
                         for (int j = 0; j < rd.bands; j++)
                         {
                             fs.Write(BitConverter.GetBytes(Convert.ToInt16(rd.BandsDataD[j, i])), 0, 2);
                         }
-
+                    }
                 }
                 else if(rd.DataType==4)
                 {
                     for (int i = 0; i < rd.ColumnCounts * rd.LineCounts; i++)
-
+                    {
                         for (int j = 0; j < rd.bands; j++)
                         {
                             fs.Write(BitConverter.GetBytes(Convert.ToSingle(rd.BandsDataD[j, i])), 0, 4);
                         }
+                    }
                 }
             }
             else if (InterLeave == "bsq")
@@ -103,28 +116,33 @@ namespace RemoteSystem
                 if (rd.DataType == 1)
                 {
                     for (int j = 0; j < rd.bands; j++)
-
+                    {
                         for (int i = 0; i < rd.ColumnCounts * rd.LineCounts; i++)
                         {
                             int temp = (int)rd.BandsDataD[j, i];
                             fs.WriteByte((byte)temp);
                         }
+                    }
                 }
                 else if (rd.DataType == 2)
                 {
                     for(int i=0;i<rd.bands;i++)
+                    {
                         for (int j = 0; j < rd.ColumnCounts * rd.LineCounts; j++)
                         {
                             fs.Write(BitConverter.GetBytes(Convert.ToInt16(rd.BandsDataD[i, j])), 0, 2);
                         }
+                    }
                 }
                 else if (rd.DataType == 4)
                 {
                     for (int i = 0; i < rd.bands; i++)
+                    {
                         for (int j = 0; j < rd.ColumnCounts * rd.LineCounts; j++)
                         {
                             fs.Write(BitConverter.GetBytes(Convert.ToSingle(rd.BandsDataD[i, j])), 0, 4);
                         }
+                    }
                 }
             }
         }

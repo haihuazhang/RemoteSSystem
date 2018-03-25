@@ -32,18 +32,27 @@ namespace RemoteSystem
                 for (int j = 0; j < ColumnCounts * LineCounts; j++)
                 {
                     if (fmax < BandsDataD[i, j])
+                    {
                         fmax = BandsDataD[i, j];
+                    }
+
                     if (fmin > BandsDataD[i, j])
+                    {
                         fmin = BandsDataD[i, j];
+                    }
                 }
 
                 for (int j = 0; j < ColumnCounts * LineCounts; j++)
                 {
                     //对分母为0情况特殊处理
                     if (fmax == fmin)
+                    {
                         showData[i, j] = (int)Math.Abs(fmin);
+                    }
                     else
+                    {
                         showData[i, j] = Convert.ToInt32((Convert.ToDouble(255) * (BandsDataD[i, j] - fmin) / (fmax - fmin)));
+                    }
                 }
             }
 
@@ -91,12 +100,16 @@ namespace RemoteSystem
                     if (a <= 0)
                     {
                         for (int i = 0; i < ColumnCounts * LineCounts; i++)
+                        {
                             bandstemp[p, i] = 0;
+                        }
                     }
                     else if (a >= 255)
                     {
                         for (int i = 0; i < ColumnCounts * LineCounts; i++)
+                        {
                             bandstemp[p, i] = 255;
+                        }
                     }
                     else
                     {
@@ -152,12 +165,16 @@ namespace RemoteSystem
                 if (a < 0)
                 {
                     for (int i = 0; i < ColumnCounts * LineCounts; i++)
+                    {
                         bandstemp[m, i] = 0;
+                    }
                 }
                 else if (a > 255)
                 {
                     for (int i = 0; i < ColumnCounts * LineCounts; i++)
+                    {
                         bandstemp[m, i] = 255;
+                    }
                 }
                 else
                 {
@@ -171,13 +188,16 @@ namespace RemoteSystem
                    
                         if (BandsDataD[m,  i] >= a && BandsDataD[m,  i ] <= b)
                         {
-                            bandstemp[m,  i ] =(int)((BandsDataD[m,  i ]- a)*255 / (b - a));
+                            bandstemp[m,i] =(int)(( BandsDataD[m,i] - a ) * 255 / (b - a));
                         }
                         else if (BandsDataD[m, i  ] < a)
-                            bandstemp[m,   i  ] = 1;
-                        else if (BandsDataD[m,   i  ] > b)
-                            bandstemp[m,   i  ] = 255;
-                    
+                    {
+                        bandstemp[m,   i  ] = 1;
+                    }
+                    else if (BandsDataD[m,   i  ] > b)
+                    {
+                        bandstemp[m,   i  ] = 255;
+                    }
                 }
             }
 
@@ -203,10 +223,14 @@ namespace RemoteSystem
             for(int k=0;k<bands;k++)
             {
                 if (Tarbands == 1)
+                {
                     m = 0;
+                }
                 else
+                {
                     m = k;
-                
+                }
+
                 int[] orgin = new int[256]; int[] target = new int[256]; int[] pixel1 = new int[256]; int[] pixel2 = new int[256];
                 int[,] srcMin = new int[256, 256]; int min; int Y=0;
                 /// </summary>
@@ -215,9 +239,15 @@ namespace RemoteSystem
                 perHistogram ph1 = new perHistogram();
                 ph1.histogram2(BandDataD1, ColumnCounts * LineCounts, k,out pixel1);
                 for (int i = 1; i < 256; i++)//计算原图像累计直方图
+                {
                     for (int j = 1; j <= i; j++)
-                        if(pixel1[i]>0)
-                        orgin[i] += pixel1[j];
+                    {
+                        if (pixel1[i]>0)
+                        {
+                            orgin[i] += pixel1[j];
+                        }
+                    }
+                }
 
                 /// </summary>
                 /// 计算目标图像累计直方图
@@ -225,9 +255,15 @@ namespace RemoteSystem
                 perHistogram ph2 =new perHistogram();
                 ph2.histogram2(BandDataD2, ColumnCounts * LineCounts, m, out pixel2);
                 for (int i = 1; i < 256; i++)//计算目标图像累计直方图
+                {
                     for (int j = 1; j <= i; j++)
-                        if(pixel2[i]>0)
-                        target[i] += pixel2[j];
+                    {
+                        if (pixel2[i]>0)
+                        {
+                            target[i] += pixel2[j];
+                        }
+                    }
+                }
 
                 /// </summary>
                 /// 两直方图直方图互减，得到[255,255]二维差值
@@ -298,8 +334,13 @@ namespace RemoteSystem
                 overlayD = new double[256];
                 newpixel = new double[256];
                 for (int i = 0; i < ColumnCounts * LineCounts; i++)
-                    if (BandsDataD[m, i] !=null)
+                {
+                    if (BandsDataD[m, i] != Double.NaN)
+                    {
                         N++;
+                    }
+                }
+                //N++;
 
                 perHistogram ph = new perHistogram();
                 /// </summary>
@@ -310,13 +351,23 @@ namespace RemoteSystem
                 ///计算累计直方图overlay[,]
                 /// </summary>
                 for (int i = 1; i < 256; i++)
+                {
                     for (int j = 1; j <= i; j++)
+                    {
                         if (pixel[i] > 0)
+                        {
                             overlay[i] += pixel[j];
+                        }
+                    }
+                }
 
                 for (int i = 0; i < 256; i++)
+                {
                     if (pixel[i] > 0)
+                    {
                         L++;
+                    }
+                }
 
 
                 //原灰度级像素累积频率和理论像素累积频率差值数组。

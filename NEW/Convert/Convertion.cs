@@ -97,7 +97,9 @@ namespace RemoteSystem
                 this.Close();
             }
             else
+            {
                 MessageBox.Show("请输入正确路径！");
+            }
         }
 
         private void Convert_Load(object sender, EventArgs e)

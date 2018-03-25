@@ -161,8 +161,13 @@ namespace RemoteSystem
             g1.TranslateTransform(30, pictureBox1.Height * 14 / 15);
             int numMax = 0;
             for (int j = 0; j < 256; j++)
+            {
                 if (pixel[key][j] > numMax)
+                {
                     numMax = pixel[key][j];
+                }
+            }
+
             Multiple[key] = (int)(numMax / this.pictureBox1.Height * 1.2);
 
             g1.DrawLine(System.Drawing.Pens.Gray, 0, 0, 0, -1 * (int)(this.pictureBox1.Height / 1.2));
@@ -175,11 +180,13 @@ namespace RemoteSystem
                 {
                     //int q = 0;
                     for (int p = 1; p <= 255 - j; p++)
+                    {
                         if (pixel[key][j + p] != 0)
                         {
                             g1.DrawLine(System.Drawing.Pens.Red, j, -1 * pixel[key][j] / Multiple[key], j + p, -1 * pixel[key][j + p] / Multiple[key]);
                             break;
                         }
+                    }
                 }
             }
 
@@ -187,8 +194,9 @@ namespace RemoteSystem
             /// Draw a string on the PictureBox.(画x轴标记)
             /// <summary>
             for (int i = 0; i < 6; i++)
-              g1.DrawString(Math.Round((min[key] + stretch[key] / 5 * i), 2).ToString(), new Font("Arial", 10), System.Drawing.Brushes.Black, (float)Math.Ceiling((double)255 * i / 5), 0);
-
+            {
+                g1.DrawString(Math.Round((min[key] + stretch[key] / 5 * i), 2).ToString(), new Font("Arial", 10), System.Drawing.Brushes.Black, (float)Math.Ceiling((double)255 * i / 5), 0);
+            }
 
             /// y轴标记
             /// <summary>
@@ -204,11 +212,17 @@ namespace RemoteSystem
             pt1 = MousePosition;
             pt1 = pictureBox1.PointToClient(pt1);
             if (Math.Abs(pt1.X-30 -pt2.X)<=10)
+            {
                 mouseState = 1;
+            }
             else if (Math.Abs(pt1.X-30-pt3.X)<=10)
+            {
                 mouseState = 2;
+            }
             else
+            {
                 mouseState = 0;
+            }
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)

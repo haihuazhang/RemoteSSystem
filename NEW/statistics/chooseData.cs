@@ -62,11 +62,14 @@ namespace RemoteSystem
             imagsta.BandsDataD = new double[imagsta.bands, imagsta.ColumnCounts * imagsta.LineCounts];
             imagsta.showdata = new int[imagsta.bands, imagsta.ColumnCounts * imagsta.LineCounts];
             for (int i = 0; i < imagsta.bands; i++)
+            {
                 for (int j = 0; j < imagsta.ColumnCounts * imagsta.LineCounts; j++)
                 {
                     imagsta.BandsData[i, j] = Form1.boduan[DataNumber].BandsData[i, j];
                     imagsta.BandsDataD[i, j] = Form1.boduan[DataNumber].BandsDataD[i, j];
                 }
+            }
+
             /// </summary>
             /// 生成0-255范围像素数据，用于联合直方图和共生矩阵
             /// </summary>

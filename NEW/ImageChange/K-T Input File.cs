@@ -50,8 +50,9 @@ namespace RemoteSystem
                 this.Close();
             }
             else if (Form1.boduan[pos].bands < 6)
+            {
                 MessageBox.Show("文件波段不满6！");
-          
+            }
             else
             {
                 /// <summary>
@@ -72,10 +73,13 @@ namespace RemoteSystem
                 rd.Bandsname[1] = "Greenness" + "(" + filename + ")";
                 rd.Bandsname[2] = "Third" + "(" + filename + ")";
                 if (textBox1.Text == "")
+                {
                     rd.FileName = "KT";
+                }
                 else
+                {
                     rd.FileName = textBox1.Text;
-
+                }
 
                 /// <summary>
                 ///静态窗口available打开，将结果加入静态数据流泛型中

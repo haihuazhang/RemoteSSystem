@@ -30,7 +30,9 @@ namespace RemoteSystem
                         for (int k = 0; k < ColumnCounts; k++)
                         {
                             for (int p = 0; p < DataType; p++)
+                            {
                                 fs.WriteByte(bits[p + k * DataType + j * LineCounts * ColumnCounts * DataType + i * ColumnCounts * DataType]);
+                            }
                         }
                     }
                 }   

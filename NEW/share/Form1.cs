@@ -79,7 +79,10 @@ namespace RemoteSystem
             /// chooseData窗体打开，并添加可选数据项（通过文件名索引）
             chooseData cd = new chooseData();
             for (int i = 0; i < Form1.boduan.Count; i++)
+            {
                 cd.listBox1.Items.Add(Form1.boduan[i].FileName);
+            }
+
             cd.Show();
         }
         /// <summary>
@@ -113,7 +116,10 @@ namespace RemoteSystem
         {
             K_T_Input_File ktinput = new K_T_Input_File();
             for (int i = 0; i < Form1.boduan.Count; i++)
+            {
                 ktinput.listBox1.Items.Add(Form1.boduan[i].FileName);
+            }
+
             ktinput.Show();
         }
         /// <summary>
@@ -158,7 +164,7 @@ namespace RemoteSystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ribbonControl1.Minimized = true;
+            //ribbonControl1.Minimized = true;
 
         }
         /// <summary>

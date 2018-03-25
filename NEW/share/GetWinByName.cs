@@ -12,8 +12,13 @@ namespace RemoteSystem
         {
             WinNum = Int16.MinValue;
             for (int i = 0; i < Wins.Count; i++)
+            {
                 if (windowname == Wins[i].windowname)
+                {
                     WinNum = i;
+                }
+            }
+
             return WinNum;
         }
     }

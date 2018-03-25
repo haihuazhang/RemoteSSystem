@@ -118,10 +118,16 @@ namespace RemoteSystem
                         while (true)
                         {
                             if(index+1==myExp.Length)
+                            {
                                 break;
-                            c=myExp.ToCharArray()[index++];
+                            }
+
+                            c =myExp.ToCharArray()[index++];
                             if (!judge(c))
+                            {
                                 break;
+                            }
+
                             band_File += c;
                         }
                         double[] temp = opnd.Pop();
@@ -130,7 +136,10 @@ namespace RemoteSystem
                         double math = Convert.ToDouble(band_File);
                         temp = new double[Length];
                         for (int i = 0; i < temp.GetLength(0); i++)
+                        {
                             temp[i] = math;
+                        }
+
                         opnd.Push(temp);
                         c = myExp.ToCharArray()[index++];
                         
@@ -167,14 +176,18 @@ namespace RemoteSystem
                                 num1 = opnd.Pop();
                                 opnd.Push(Operate(num1, optr.Pop(), num2));
                                 if (!ishandled)
+                                {
                                     isJump = true;
+                                }
+
                                 break;
                             default:
                                 break;
                         }
                         if (isJump)
+                        {
                             break;
-
+                        }
                     }
                 }
                 if (!isExpressionRight)
@@ -203,7 +216,10 @@ namespace RemoteSystem
                 s = true;
             }
             else
+            {
                 s = false;
+            }
+
             return s;
         }
         /// <summary>
@@ -231,9 +247,14 @@ namespace RemoteSystem
             for (int i = 0; i < optrs.Length; ++i)
             {
                 if (optr1 == optrs[i])
+                {
                     x = i;
+                }
+
                 if (optr2 == optrs[i])
+                {
                     y = i;
+                }
             }
             if (optrTable[x, y] == '?')
             {

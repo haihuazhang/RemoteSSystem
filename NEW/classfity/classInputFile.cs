@@ -28,7 +28,9 @@ namespace RemoteSystem
         private void classInputFile_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < Form1.boduan.Count; i++)
+            {
                 listBoxControl1.Items.Add(Form1.boduan[i].FileName);
+            }
         }
         /// <summary>
         /// 切换选择数据时改变头文件信息
@@ -80,7 +82,10 @@ namespace RemoteSystem
                     rd.FileName = "classFile";
                 }
                 else
+                {
                     rd.FileName = textEdit1.Text;
+                }
+
                 rd.Bandsname = new string[1];
                 rd.Bandsname[0] = "band1";
 

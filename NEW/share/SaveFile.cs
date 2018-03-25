@@ -38,17 +38,34 @@ namespace RemoteSystem
             if (DataType == 1)
             {
                 for (int i = 0; i < rd.bands; i++)
+                {
                     for (int j = 0; j < rd.ColumnCounts * rd.LineCounts; j++)
+                    {
                         fs.WriteByte(Convert.ToByte(rd.BandsDataD[i, j]));
+                    }
+                }
             }
             else if (DataType == 2)
+            {
                 for (int i = 0; i < rd.bands; i++)
+                {
                     for (int j = 0; j < rd.ColumnCounts * rd.LineCounts; j++)
+                    {
                         fs.Write(BitConverter.GetBytes(Convert.ToInt16(rd.BandsDataD[i, j])), 0, 2);
+                    }
+                }
+            }
             else if(DataType==4)
+            {
                 for (int i = 0; i < rd.bands; i++)
+                {
                     for (int j = 0; j < rd.ColumnCounts * rd.LineCounts; j++)
+                    {
                         fs.Write(BitConverter.GetBytes((float)(rd.BandsDataD[i, j])), 0, 4);
+                    }
+                }
+            }
+
             fs.Flush();
             fs.Close();
             return true;

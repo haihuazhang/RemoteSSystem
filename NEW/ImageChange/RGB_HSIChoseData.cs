@@ -128,9 +128,14 @@ namespace RemoteSystem
                     rd.Bandsname[2] = "Iit" + "(" + Form1.boduan[iB].Bandsname[Bband] + ":" + pathmark3 + ")";
 
                     if (textBox4.Text == "")
+                    {
                         rd.FileName = "HSI";
+                    }
                     else
+                    {
                         rd.FileName = textBox4.Text;
+                    }
+
                     /// <summary>
                     ///静态窗口available打开，将结果加入静态数据流泛型中
                     /// <summary>
@@ -144,10 +149,14 @@ namespace RemoteSystem
                     this.Close();
                 }
                 else
+                {
                     MessageBox.Show("波段规格不匹配！");
+                }
             }
             else
+            {
                 MessageBox.Show("无有效数据！");
+            }
         }
     }
 }

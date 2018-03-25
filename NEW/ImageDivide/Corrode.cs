@@ -39,7 +39,9 @@ namespace RemoteSystem
                         /// 图像边缘处理
                         /// <summary>
                         if (j == LineCounts - 1 || k == ColumnCounts - 1||j==0||k==0)
+                        {
                             Result[i, j * ColumnCounts + k] = BandsDataD[i, j * ColumnCounts + k];
+                        }
                         else
                         {
                             
@@ -50,15 +52,23 @@ namespace RemoteSystem
                                 for(int q=-1;q<2;q++)
                                 {
                                     if(structure[p+1,q+1]==1&&BandsDataD[i,(j+p)*ColumnCounts+k+q]!=1)
+                                    {
                                         break;
+                                    }
                                     else
+                                    {
                                         count++;
+                                    }
                                 }
                             }
                             if(count==9)
+                            {
                                 Result[i, j * ColumnCounts + k] = 1;
+                            }
                             else
+                            {
                                 Result[i, j * ColumnCounts + k] = 0;
+                            }
                         }
                     }
                 }

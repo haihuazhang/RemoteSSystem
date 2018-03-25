@@ -20,9 +20,13 @@ namespace RemoteSystem
         {
             int record = Int16.MinValue;
             for (int i = 0; i < readmore.Count; i++)
-
+            {
                 if (readmore[i].FileName == FileName)
+                {
                     record = i;
+                }
+            }
+
             return record;
         }
     }

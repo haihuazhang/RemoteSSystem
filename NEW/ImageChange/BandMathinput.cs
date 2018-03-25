@@ -77,9 +77,13 @@ namespace RemoteSystem
                 if (cc.ishandled)
                 {
                     if (textBox3.Text == "")
+                    {
                         rd.FileName = "BandMath";
+                    }
                     else
+                    {
                         rd.FileName = textBox3.Text;
+                    }
 
                     rd.Bandsname[0] = textBox1.Text.Replace('"', ' ').Trim();
 
@@ -103,9 +107,9 @@ namespace RemoteSystem
                 }
             }
             else
+            {
                 MessageBox.Show("请输入表达式！");
-
-
+            }
         }
         /// <summary>
         /// 关闭窗口

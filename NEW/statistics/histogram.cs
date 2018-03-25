@@ -100,8 +100,13 @@ namespace RemoteSystem
             /// <summary>
             int numMax=0;
             for (int j = 0; j < 256;j++ )
-                if(draw[j]>numMax)
-                    numMax=draw[j];
+            {
+                if (draw[j]>numMax)
+                {
+                    numMax =draw[j];
+                }
+            }
+
             Multiple = (int)(numMax / pictureBox2.Height*1.2);
             // Create a local version of the graphics object for the PictureBox.
             Graphics g = e.Graphics;
@@ -127,12 +132,13 @@ namespace RemoteSystem
                 {
                     //int q = 0;
                     for (int p = 1; p <= 255 - j; p++)
+                    {
                         if (draw[j+p] != 0)
                         {
                             g.DrawLine(System.Drawing.Pens.Red, j, draw[j] / Multiple, j + p, draw[j + p] / Multiple);
                             break;
                         }
-                   
+                    }
                 }
             }
     

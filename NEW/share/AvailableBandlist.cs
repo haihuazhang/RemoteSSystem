@@ -51,8 +51,8 @@ namespace RemoteSystem
             int time = gdb.getnumber(readmore, root.Text);
             for (int i = 0; i < readmore[time].bands; i++)
             {
-                TreeNode leave = new TreeNode();
-                leave.Text = readmore[time].Bandsname[i];
+                TreeNode leave = new TreeNode(readmore[time].Bandsname[i]);
+                //leave.Text = readmore[time].Bandsname[i];
                 root.Nodes.Add(leave);
             }
             panel1.Show();
@@ -110,7 +110,10 @@ namespace RemoteSystem
                         ///原数据存储
                         /// <summary>
                         for (int j = 0; j < readmore[i].ColumnCounts * readmore[i].LineCounts; j++)
+                        {
                             imv.BandsDataD[0, j] = readmore[i].BandsDataD[single, j];
+                        }
+
                         imv.pictureBox1.Height = imv.LineCounts;
                         imv.pictureBox1.Width = imv.ColumnCounts;
 
@@ -141,8 +144,9 @@ namespace RemoteSystem
                         imv.Visible = true;
                     }
                     else
+                    {
                         MessageBox.Show("请选择波段！");
-
+                    }
                 }
                 else if (radioButton2.Checked)
                 {
@@ -185,11 +189,19 @@ namespace RemoteSystem
                             ///任意图像任意波段合成（数据传递）
                             /// <summary>
                             for (int j = 0; j < imv.ColumnCounts * imv.LineCounts; j++)
+                            {
                                 imv.BandsDataD[0, j] = readmore[i2].BandsDataD[Rband, j];
+                            }
+
                             for (int j = 0; j < imv.ColumnCounts * imv.LineCounts; j++)
+                            {
                                 imv.BandsDataD[1, j] = readmore[i3].BandsDataD[Gband, j];
+                            }
+
                             for (int j = 0; j < imv.ColumnCounts * imv.LineCounts; j++)
+                            {
                                 imv.BandsDataD[2, j] = readmore[i4].BandsDataD[Bband, j];
+                            }
 
                             imv.pictureBox1.Height = imv.LineCounts;
                             imv.pictureBox1.Width = imv.ColumnCounts;
@@ -221,12 +233,14 @@ namespace RemoteSystem
                             imv.Visible = true;
                         }
                         else
+                        {
                             MessageBox.Show("波段规格不匹配！");
-
+                        }
                     }
                     else
+                    {
                         MessageBox.Show("请输入波段！");
-
+                    }
                 }
                 /// <summary>
                 /// imv实例加入Wins泛型中
@@ -269,7 +283,9 @@ namespace RemoteSystem
                         ///原数据存储
                         /// <summary>
                         for (int j = 0; j < readmore[i].ColumnCounts * readmore[i].LineCounts; j++)
+                        {
                             Wins[WinNbr].BandsDataD[0, j] = readmore[i].BandsDataD[single, j];
+                        }
 
                         Wins[WinNbr].pictureBox1.Height = Wins[WinNbr].LineCounts;
                         Wins[WinNbr].pictureBox1.Width = Wins[WinNbr].ColumnCounts;
@@ -308,8 +324,9 @@ namespace RemoteSystem
                         Wins[WinNbr].Visible = true;
                     }
                     else
+                    {
                         MessageBox.Show("请输入波段！");
-
+                    }
                 }
                 else if (radioButton2.Checked)
                 {
@@ -352,11 +369,19 @@ namespace RemoteSystem
                             ///任意图像任意波段合成（数据传递）
                             /// <summary>
                             for (int j = 0; j < Wins[WinNbr].ColumnCounts * Wins[WinNbr].LineCounts; j++)
+                            {
                                 Wins[WinNbr].BandsDataD[0, j] = readmore[i2].BandsDataD[Rband, j];
+                            }
+
                             for (int j = 0; j < Wins[WinNbr].ColumnCounts * Wins[WinNbr].LineCounts; j++)
+                            {
                                 Wins[WinNbr].BandsDataD[1, j] = readmore[i3].BandsDataD[Gband, j];
+                            }
+
                             for (int j = 0; j < Wins[WinNbr].ColumnCounts * Wins[WinNbr].LineCounts; j++)
+                            {
                                 Wins[WinNbr].BandsDataD[2, j] = readmore[i4].BandsDataD[Bband, j];
+                            }
 
                             Wins[WinNbr].pictureBox1.Height = Wins[WinNbr].LineCounts;
                             Wins[WinNbr].pictureBox1.Width = Wins[WinNbr].ColumnCounts;
@@ -393,10 +418,14 @@ namespace RemoteSystem
                             Wins[WinNbr].Visible = true;
                         }
                         else
+                        {
                             MessageBox.Show("波段规格不匹配！");
+                        }
                     }
                     else
+                    {
                         MessageBox.Show("请输入波段！");
+                    }
                 }
             }
         }
@@ -435,8 +464,10 @@ namespace RemoteSystem
                     string winname = comboBox1.Items[i].ToString();
                     if (Convert.ToInt32(winname.Substring
                         (winname.IndexOf("#") + 1, winname.Length - winname.IndexOf("#") - 1)) > max)
+                    {
                         max = Convert.ToInt32(winname.Substring
                         (winname.IndexOf("#") + 1, winname.Length - winname.IndexOf("#") - 1));
+                    }
                 }
                 /// <summary>
                 /// 得到待建窗口序号（考虑到窗口名不连续情况）
@@ -561,8 +592,8 @@ namespace RemoteSystem
                 switch (ReturnDlg)
                 {
                     case DialogResult.OK:
-                        GetDataByFilename gdbf =new GetDataByFilename();
-                        int i =gdbf.getnumber(Form1.boduan,treeView1.SelectedNode.Text);
+                        //GetDataByFilename gdbf =new GetDataByFilename();
+                        int i = new GetDataByFilename().getnumber(Form1.boduan,treeView1.SelectedNode.Text);
                         Form1.boduan.RemoveAt(i);
                         this.readmore.RemoveAt(i);
                         this.treeView1.Nodes.Remove(treeView1.SelectedNode);

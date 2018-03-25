@@ -49,30 +49,40 @@ namespace RemoteSystem
             if (bands == 6)
             {
                 for (int i = 0; i < 3; i++)
+                {
                     for (int j = 0; j < ColumnCounts * LineCounts; j++)
                     {
                         /// <summary>
                         /// 计算K-T值
                         /// <summary>
                         for (int k = 0; k < bands; k++)
+                        {
                             K_T_result[i, j] += BandsDataD[k, j] * landset5[i, k];
+                        }
+
                         K_T_result[i, j] += landset5[i, 6];
                     }
+                }
             }
             //band为7时
             else
             {
                 for (int i = 0; i < 3; i++)
+                {
                     for (int j = 0; j < ColumnCounts * LineCounts; j++)
                     {
                         /// <summary>
                         /// 计算K-T值
                         /// <summary>
                         for (int k = 0; k < bands - 2; k++)
+                        {
                             K_T_result[i, j] += BandsDataD[k, j] * landset5[i, k];
+                        }
+
                         K_T_result[i, j] += BandsDataD[6, j] * landset5[i, 5];
                         K_T_result[i, j] += landset5[i, 6];
                     }
+                }
             }
 
         }
@@ -86,8 +96,13 @@ namespace RemoteSystem
             rd.Bandsname = new string[rd.bands];
             rd.BandsData = new int[rd.bands, ColumnCounts * LineCounts];
             for (int i = 0; i < rd.bands; i++)
+            {
                 for (int j = 0; j < ColumnCounts * LineCounts; j++)
+                {
                     rd.BandsData[i, j] = (int)rd.BandsDataD[i, j];
+                }
+            }
+
             rd.DataType = 4;
             return rd;
         }

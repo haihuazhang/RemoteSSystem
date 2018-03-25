@@ -51,7 +51,9 @@ namespace RemoteSystem
                 f2.Show();
             }
             else
+            {
                 MessageBox.Show("请选择波段！");
+            }
         }
 
         /// <summary>
@@ -83,7 +85,9 @@ namespace RemoteSystem
                 f2.Show();
             }
             else
+            {
                 MessageBox.Show("请选择波段！");
+            }
         }
         /// <summary>
         /// 共生矩阵
@@ -160,10 +164,9 @@ namespace RemoteSystem
                 MessageBox.Show("请选择波段！");
             }
             else
+            {
                 MessageBox.Show("请输入合适的偏移量！");
-
-          
-
+            }
         }
         /// <summary>
         /// 波段选项

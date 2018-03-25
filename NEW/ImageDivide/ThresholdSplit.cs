@@ -51,17 +51,25 @@ namespace RemoteSystem
                 }
                 T2 = (Temp1 / Temp2 + Temp3 / Temp4) / 2;
                 if (T1 == T2)
+                {
                     break;
+                }
                 else
+                {
                     T1 = T2;
+                }
             }
             double threw = T1 * ph.stretch / 255 + ph.min;
             for (int i = 0; i < ColumnCounts * LineCounts; i++)
             {
                 if (BandsDataD[m, i] > threw)
+                {
                     result[0, i] = 255;
+                }
                 else
+                {
                     result[0, i] = 0;
+                }
             }
             return result;
         }
@@ -80,9 +88,13 @@ namespace RemoteSystem
             for (int i = 0; i < ColumnCounts * LineCounts; i++)
             {
                 if (BandsDataD[m, i] > Threw)
+                {
                     result[0, i] = 255;
+                }
                 else
+                {
                     result[0, i] = 0;
+                }
             }
             return result;
         }

@@ -32,11 +32,19 @@ namespace RemoteSystem
             ///任意图像任意波段合成（数据传递）
             /// <summary>
             for (int j = 0; j < rd.ColumnCounts * rd.LineCounts; j++)
+            {
                 this.rd.BandsDataD[0, j] = Form1.boduan[iR].BandsDataD[Rband, j];
+            }
+
             for (int j = 0; j < rd.ColumnCounts * rd.LineCounts; j++)
+            {
                 this.rd.BandsDataD[1, j] = Form1.boduan[iG].BandsDataD[Gband, j];
+            }
+
             for (int j = 0; j < rd.ColumnCounts * rd.LineCounts; j++)
+            {
                 this.rd.BandsDataD[2, j] = Form1.boduan[iB].BandsDataD[Bband, j];
+            }
             //传入原始数据
             this.BandsDataD = this.rd.BandsDataD;
         }
@@ -95,18 +103,29 @@ namespace RemoteSystem
                     /// 特殊情况处理（R=G=B）
                     /// </summary>
                     if (R == G && R == B)
-                        HSIColor[0, i] = 0;
-                    else
+                {
+                    HSIColor[0, i] = 0;
+                }
+                else
                     {
                         if (Max == R)
-                            HSIColor[0, i] = Math.PI / 3 * (G - B) / (Max - Min);
-                        else if (Max == G)
-                            HSIColor[0, i] = Math.PI / 3 * (B - R) / (Max - Min) + 2.0 / 3.0 * Math.PI;
-                        else
-                            HSIColor[0, i] = Math.PI / 3 * (R - G) / (Max - Min) + 4.0 / 3.0 * Math.PI;
-                        if (HSIColor[0, i] < 0)
-                            HSIColor[0, i] = HSIColor[0, i] + 2 * Math.PI;
+                    {
+                        HSIColor[0, i] = Math.PI / 3 * (G - B) / (Max - Min);
                     }
+                    else if (Max == G)
+                    {
+                        HSIColor[0, i] = Math.PI / 3 * (B - R) / (Max - Min) + 2.0 / 3.0 * Math.PI;
+                    }
+                    else
+                    {
+                        HSIColor[0, i] = Math.PI / 3 * (R - G) / (Max - Min) + 4.0 / 3.0 * Math.PI;
+                    }
+
+                    if (HSIColor[0, i] < 0)
+                    {
+                        HSIColor[0, i] = HSIColor[0, i] + 2 * Math.PI;
+                    }
+                }
                     /// </summary>
                     /// 弧度转角度
                     /// </summary>
@@ -150,16 +169,22 @@ namespace RemoteSystem
                 Min = Math.Min(Min, B);
                 HSIColor[1, i] = 1 - 3 * Min / (R + G + B);
                 if (R == G && R == B)
+                {
                     HSIColor[0, i] = 0;
+                }
                 else
                 {
 
                     double θ = Math.Acos((2 * Rr - Gg - Bb) / 2 / Math.Sqrt(Math.Pow(Rr - Gg, 2) + (Rr - Bb) * (Gg - Bb)));
                     θ *= (180 / Math.PI);
                     if (B <= G)
+                    {
                         HSIColor[0, i] = θ;
+                    }
                     else
+                    {
                         HSIColor[0, i] = 360 - θ;
+                    }
                 }
 
             }
@@ -173,8 +198,13 @@ namespace RemoteSystem
         {
             rd.BandsDataD = ConvertHSI2();
             for (int i = 0; i < 3; i++)
+            {
                 for (int j = 0; j < rd.ColumnCounts * rd.LineCounts; j++)
+                {
                     rd.BandsData[i, j] = (int)rd.BandsDataD[i, j];
+                }
+            }
+
             return rd;
         }
     }

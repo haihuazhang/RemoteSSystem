@@ -38,7 +38,9 @@ namespace RemoteSystem
             Result = new double[bands, ColumnCounts * LineCounts];
             Gradient = new double[bands, ColumnCounts * LineCounts];
             for (int i = 0; i < bands; i++)
+            {
                 for (int j = 0; j < LineCounts; j++)
+                {
                     for (int k = 0; k < ColumnCounts; k++)
                     {
                         /// <summary>
@@ -55,14 +57,20 @@ namespace RemoteSystem
                         else
                         {
                             for (int p = -1; p < 2; p++)
+                            {
                                 for (int q = -1; q < 2; q++)
+                                {
                                     Gradient[i, j * ColumnCounts + k] += Kernel[p + 1, q + 1] * BandsDataD[i, (j + p) * ColumnCounts + k + q];
+                                }
+                            }
                         }
                         /// <summary>
                         /// 锐化结果图像=原图像-θ*梯度图像（θ=1）
                         /// <summary>
                         Result[i, j * ColumnCounts + k] = BandsDataD[i, j * ColumnCounts + k] - Gradient[i, j * ColumnCounts + k];
                     }
+                }
+            }
         }
         /// <summary>
         /// 获取结果数据
@@ -77,8 +85,13 @@ namespace RemoteSystem
             rd.Bandsname = new string[bands];
             rd.BandsData = new int[bands, ColumnCounts * LineCounts];
             for (int i = 0; i < bands; i++)
+            {
                 for (int j = 0; j < ColumnCounts * LineCounts; j++)
+                {
                     rd.BandsData[i, j] = (int)rd.BandsDataD[i, j];
+                }
+            }
+
             rd.DataType = 4;
             return rd;
         }
@@ -91,8 +104,13 @@ namespace RemoteSystem
             rd2.Bandsname = new string[bands];
             rd2.BandsData = new int[bands, ColumnCounts * LineCounts];
             for (int i = 0; i < bands; i++)
+            {
                 for (int j = 0; j < ColumnCounts * LineCounts; j++)
+                {
                     rd2.BandsData[i, j] = (int)rd2.BandsDataD[i, j];
+                }
+            }
+
             rd2.DataType = 4;
             return rd2;
         }

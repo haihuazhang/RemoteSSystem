@@ -46,7 +46,9 @@ namespace RemoteSystem
             {
                 this.BandsDataD[i] = new double[ColumnCounts * LineCounts];
                 for (int j = 0; j < ColumnCounts * LineCounts; j++)
+                {
                     this.BandsDataD[i][j] = Form1.boduan[N].BandsDataD[i, j];
+                }
             }
         }
         /// <summary>
@@ -81,7 +83,9 @@ namespace RemoteSystem
                     CurrentCentre = CreateNewCentre(result);
                 }
                 else
+                {
                     break;
+                }
             }
             //分类结果加1
             for (int i = 0; i < ColumnCounts * LineCounts; i++)
@@ -132,18 +136,27 @@ namespace RemoteSystem
                 double[] distance = new double[ClassNum];
                 double[] data = new double[bands];
                 for (int j = 0; j < bands; j++)
+                {
                     data[j] = BandsDataD[j][i];
+                }
+
                 for (int k = 0; k < ClassNum; k++)
+                {
                     distance[k] = Euidistance(data, CurrentCentre[k]);
+                }
+
                 double min = Double.MaxValue;
                 int ClassType = 0;
                 for (int k = 0; k < ClassNum; k++)
+                {
                     if (min > distance[k])
                     {
                         //最小距离的类中心作为类别
                         min = distance[k];
                         ClassType = k;
                     }
+                }
+
                 ClassResult[i] = ClassType;
             }
             return ClassResult;
